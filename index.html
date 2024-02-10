@@ -5,15 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Login Page</title>
+
+    <script>
+        function loginValidate(){
+            let name = document.forms["loginForm"]["userName"].value;
+            let pass = document.forms["loginForm"]["userPassword"].value;
+
+            if (name == "" && pass == ""){
+                alert("Please fill up all text field");
+                return false
+            }else if (name == ""){
+                alert("Please fill up user name text field");
+                return false
+            }else if (pass == ""){
+                alert("Please fill up password text field");
+                return false
+            }else{
+                alert("Login successfully!");
+            }
+        }
+    </script>
+
+
 </head>
 <body>
 
 <div>
-    <form action="">
+    <form name="loginForm" action="" onsubmit="loginValidate()" method="post">
         <label for="uName">Username</label>
-        <input type="text" placeholder="Enter your username"> 
+        <input type="text" id="uName" name="userName" placeholder="Enter your username"> 
         <label for="uPassword">Password</label>
-        <input type="password" placeholder="Enter your password">
+        <input type="password" id="uPassword" name="userPassword" placeholder="Enter your password">
         <input type="submit" value="Login">
     </form>
 </div>
